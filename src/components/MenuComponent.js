@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 'reactstrap';
+import DishDetail from './DishdetailComponent';
 
 class Menu extends Component {
 
@@ -8,33 +9,24 @@ class Menu extends Component {
 
 		this.state = {
 			selectedDish: null,
+			selectedDishComments: null, 
 		}
+
+		console.log("Menu Component constructor is invoked.");
+	}
+
+	componentDidMount() {
+		console.log("Menu Component is mounted.");
 	}
 
 	onDishSelect(dish) {
 		// cannot directly say this.state.selectedDish = dish; 
 		this.setState({ selectedDish: dish })
-	}
-
-	renderDish(dish) {
-		if (dish != null) {
-			return (
-				<Card>
-					<CardImg width="100%" object src={dish.image} alt={dish.name} />
-					<CardBody>
-						<CardTitle>{dish.name}</CardTitle>
-						<CardText>{dish.description}</CardText>
-					</CardBody>
-				</Card>
-			);
-		} else {
-			return (
-				<div></div>
-			);
-		}
+		this.setState({ selectedDishComments: dish.comments })
 	}
 
 	render() {
+		console.log("Menu Component is rendered.");
 		const menu = this.props.dishes.map((dish) => {
 			return (
 				<div key={dish.id} className="col-12 col-md-5 m-1">
@@ -53,9 +45,7 @@ class Menu extends Component {
 				<div className="row">
 					{menu}
 				</div>
-				<div className="row">
-					{this.renderDish(this.state.selectedDish)}
-				</div>
+				<DishDetail selectedDish={this.state.selectedDish} selectedDishComments={this.state.selectedDishComments} />
 			</div>
 		);
 	}
