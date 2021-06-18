@@ -216,6 +216,14 @@
       "comment": "that was pretty good. would definitely recommend for other peeps.",
       "date": "2021-06-18T18:27:05.432Z",
       "id": 21
+    },
+    {
+      "dishId": 2,
+      "rating": "5",
+      "author": "Aaryan Boy",
+      "comment": "Dude, this Vadonut, was so cool. Really deserved all the international hype. It's a must-have, if you stop by conFusion!",
+      "date": "2021-06-18T20:37:23.522Z",
+      "id": 22
     }
   ],
   "promotions": [
